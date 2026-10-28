@@ -1,0 +1,299 @@
+<title>推肩动作复盘</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: a coach's review sheet — one narrow reading column, media panels break wider; force-line blue is the single accent */
+:root{
+  --bg:#f3f4f2; --panel:#ffffff; --ink:#15181d; --muted:#5d6570; --rule:#dcdfe2;
+  --force:#0284c7; --good:#059669; --bad:#dc2626; --warn:#b45309;
+  --good-bg:#e7f6ef; --bad-bg:#fdecec; --warn-bg:#fdf3e2; --force-bg:#e3f2fb;
+  --display:"Noto Serif SC","Songti SC",serif;
+  --body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1116; --panel:#161a21; --ink:#e8eaed; --muted:#9aa3ae; --rule:#262c35;
+  --force:#38bdf8; --good:#34d399; --bad:#f87171; --warn:#fbbf24;
+  --good-bg:#0f2a21; --bad-bg:#2c1416; --warn-bg:#2b2210; --force-bg:#0c2433; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1116; --panel:#161a21; --ink:#e8eaed; --muted:#9aa3ae; --rule:#262c35;
+  --force:#38bdf8; --good:#34d399; --bad:#f87171; --warn:#fbbf24;
+  --good-bg:#0f2a21; --bad-bg:#2c1416; --warn-bg:#2b2210; --force-bg:#0c2433; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.75;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:980px;margin:0 auto;padding-block:40px 80px;display:flex;flex-direction:column;gap:72px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.25}
+h1{font-size:clamp(34px,6vw,54px);font-weight:900;letter-spacing:.01em}
+h2{font-size:clamp(24px,3.6vw,32px);font-weight:900}
+h3{font-size:19px;font-weight:700}
+p{margin:0;max-width:62ch}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)))}
+nav.toc .in{max-width:980px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+nav.toc a{flex:none;font-size:13.5px;color:var(--muted);text-decoration:none;padding:5px 12px;border-radius:999px;transition:background .2s,color .2s}
+nav.toc a:hover,nav.toc a.on{background:var(--panel);color:var(--ink)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--force);outline-offset:2px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center}
+.hero .txt{display:flex;flex-direction:column;gap:20px;min-width:0}
+.lead{font-size:18px;color:var(--muted)}
+.lead b{color:var(--ink)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--muted)}
+.facts span b{font-family:var(--mono);color:var(--ink);font-weight:700;margin-right:4px}
+.hero figure{margin:0}
+.verdict{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chip{border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.chip .k{font-size:13px;opacity:.85}
+.chip .v{font-weight:700;font-size:17px}
+.g{background:var(--good-bg);color:var(--good)} .r{background:var(--bad-bg);color:var(--bad)}
+.w{background:var(--warn-bg);color:var(--warn)} .f{background:var(--force-bg);color:var(--force)}
+
+/* media */
+.shot{position:relative;margin:0;border-radius:16px;overflow:hidden;background:#0b0f17;cursor:zoom-in;
+  box-shadow:0 1px 0 var(--rule),0 18px 40px -24px rgba(0,0,0,.45);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.shot:hover{transform:translateY(-3px)}
+.shot img{display:block;width:100%;height:auto}
+.shot .tag{position:absolute;left:10px;top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+  background:rgba(11,15,23,.78);color:#fff;padding:3px 9px;border-radius:999px}
+figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
+
+section{display:flex;flex-direction:column;gap:24px;scroll-margin-top:70px}
+.head{display:flex;flex-direction:column;gap:8px}
+
+/* force-line block */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.duo>div{display:flex;flex-direction:column;gap:14px;min-width:0}
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:14px}
+.legend i{display:inline-block;width:22px;height:0;border-top:4px solid;vertical-align:middle;margin-right:6px;border-radius:2px}
+.legend .dash{border-top-style:dashed;border-top-width:3px}
+
+/* findings */
+.find{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start;
+  padding-top:28px;border-top:1px solid var(--rule)}
+.find .body{display:flex;flex-direction:column;gap:14px;min-width:0}
+.sev{align-self:flex-start;font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:999px}
+.fix{background:var(--panel);border-radius:12px;padding:14px 16px;font-size:15px;display:flex;flex-direction:column;gap:6px;border:1px solid var(--rule)}
+.fix b{font-size:13px;color:var(--muted);font-weight:500;letter-spacing:.06em}
+.goods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.good{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.good h3{font-size:17px;color:var(--good)}
+.good p{font-size:14.5px;color:var(--muted)}
+
+/* chart */
+.chartbox{background:var(--panel);border:1px solid var(--rule);border-radius:16px;padding:18px 18px 10px;overflow-x:auto}
+.chartbox svg{display:block;width:100%;min-width:560px;height:auto}
+.chartbox text{fill:var(--muted);font-family:var(--mono);font-size:11px}
+.cl{display:flex;gap:18px;font-size:13.5px;margin-bottom:6px;flex-wrap:wrap}
+.cl span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+
+/* plan */
+.plan{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;counter-reset:p}
+.step{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:18px 18px 18px 60px;position:relative;min-width:0}
+.step::before{counter-increment:p;content:counter(p);position:absolute;left:18px;top:16px;width:28px;height:28px;border-radius:50%;
+  background:var(--force);color:var(--bg);font:700 14px/28px var(--mono);text-align:center}
+.step h3{font-size:16.5px;margin-bottom:4px;font-family:var(--body)}
+.step p{font-size:14.5px;color:var(--muted)}
+.note{font-size:13.5px;color:var(--muted);border-top:1px solid var(--rule);padding-top:20px;display:flex;flex-direction:column;gap:6px}
+
+/* lightbox */
+dialog{border:0;padding:0;background:transparent;max-width:min(94vw,900px);max-height:94vh}
+dialog::backdrop{background:rgba(5,7,10,.86);backdrop-filter:blur(4px)}
+dialog img{display:block;max-width:100%;max-height:90vh;border-radius:12px;margin:auto}
+dialog[open]{animation:pop .28s cubic-bezier(.2,.7,.2,1)}
+@keyframes pop{from{transform:scale(.96);opacity:.4}to{transform:none;opacity:1}}
+
+@media (max-width:760px){
+  .hero,.duo,.find{grid-template-columns:1fr}
+  .goods,.plan{grid-template-columns:1fr}
+  .wrap{gap:56px;padding-top:24px}
+  .hero figure{max-width:340px}
+}
+</style>
+
+<nav class="toc"><div class="in">
+  <a href="#overview">总评</a><a href="#force">力线</a><a href="#good">做得好</a><a href="#fix">要改进</a><a href="#tempo">节奏</a><a href="#plan">下次怎么练</a>
+</div></nav>
+
+<div class="wrap">
+
+<header class="hero" id="overview">
+  <div class="txt">
+    <span class="eyebrow">训练复盘 · 侧面视角 · 2026-10-27</span>
+    <h1>坐姿器械推肩</h1>
+    <p class="lead">一组 <b>12 次</b>，做到接近力竭，躯干稳定、顶端力线干净。<b>主要扣分在“下半程”</b>：下放太浅、下放太快，最后一次几乎是砸回去的。</p>
+    <div class="facts">
+      <span><b>12</b>次</span><span><b>≈29</b>秒做完</span><span><b>≈2.1</b>秒/次</span><span><b>0.4</b>秒 最后一次下放</span>
+    </div>
+    <div class="verdict">
+      <div class="chip g"><span class="k">躯干稳定</span><span class="v">优秀</span></div>
+      <div class="chip f"><span class="k">顶端力线</span><span class="v">良好</span></div>
+      <div class="chip r"><span class="k">动作幅度</span><span class="v">偏浅</span></div>
+      <div class="chip r"><span class="k">离心控制</span><span class="v">偏快</span></div>
+    </div>
+  </div>
+  <figure>
+    <div class="shot"><span class="tag">第 1–2 次 · 原速</span><img src="media/rep_forceline.gif" alt="一次完整推肩动作，叠加肩线和铅垂参考线" width="360" height="640"></div>
+    <figcaption>黄线是肩关节高度，白虚线是穿过肩关节的铅垂线。注意底部时肘部始终没有落到黄线。</figcaption>
+  </figure>
+</header>
+
+<section id="force">
+  <div class="head">
+    <span class="eyebrow">力线分析</span>
+    <h2>顶端力线很正，底部没走完</h2>
+    <p class="muted">推举类动作的力线是“握把 → 前臂 → 肩关节”这条传力路线。路线越接近竖直，越能把重量直接压在肩关节上方，三角肌发力也越纯粹。</p>
+  </div>
+  <div class="legend">
+    <span><i style="border-color:var(--force)"></i>力线（握把→肩）</span>
+    <span><i class="dash" style="border-color:var(--muted)"></i>铅垂参考</span>
+    <span><i class="dash" style="border-color:var(--warn)"></i>肩关节高度</span>
+    <span><i style="border-color:var(--good)"></i>做得好</span>
+    <span><i style="border-color:var(--bad)"></i>需要改</span>
+  </div>
+  <div class="duo">
+    <div>
+      <figure class="shot" data-zoom><span class="tag">顶端 · 24.5s</span><img src="media/top_force.jpg" alt="顶端位置力线标注" width="720" height="1280"></figure>
+      <p><b>顶端：</b>握把到肩关节的连线和铅垂线只差约 5°，重量正压在肩上方，手臂接近伸直但没有猛锁肘。背部贴靠垫，臀部没有离座借力。</p>
+    </div>
+    <div>
+      <figure class="shot" data-zoom><span class="tag">底部 · 13.75s</span><img src="media/bottom_depth.jpg" alt="底部位置幅度与前臂力线标注" width="720" height="1280"></figure>
+      <p><b>底部：</b>前臂基本竖直，传力路线没问题。问题在深度：握把停在眉眼高度，肘部还在肩线上方就开始推，三角肌最有效的拉伸段被跳过了。</p>
+    </div>
+  </div>
+</section>
+
+<section id="good">
+  <div class="head"><span class="eyebrow">做得好的地方</span><h2>这三点保持住</h2></div>
+  <div class="goods">
+    <div class="good"><h3>躯干全程稳定</h3><p>12 次里背部始终贴住靠垫，没有为了推起来而后仰、拱腰或抬臀。到力竭阶段也没变形，这一点很多人做不到。</p></div>
+    <div class="good"><h3>推起路线一致</h3><p>每次握把轨迹几乎重合，顶端力线落在肩关节正上方，说明座位前后位置和握法基本合适。</p></div>
+    <div class="good"><h3>强度到位</h3><p>前 9 次推起约 1 秒，最后 3 次明显变慢到 1.5–1.9 秒，这是接近力竭的典型信号，这组是有效组。</p></div>
+  </div>
+</section>
+
+<section id="fix">
+  <div class="head"><span class="eyebrow">需要改进</span><h2>按影响大小排序</h2></div>
+
+  <article class="find">
+    <div class="body">
+      <span class="sev r">影响最大</span>
+      <h3>下放幅度偏浅</h3>
+      <p>底部握把在眉眼高度就折返，肘部高于肩线，相当于每次只做了动作的上 2/3。器械推肩的增肌刺激很大一部分来自下半程的拉伸。</p>
+      <div class="fix"><b>怎么改</b>座椅调高 1–2 格，让起始时握把落在下巴到嘴的高度，肘部大约平行或略低于肩。肩部有不适就停在无痛的最低点。</div>
+    </div>
+    <figure class="shot" data-zoom><span class="tag">底部对比线</span><img src="media/bottom_depth.jpg" alt="底部深度不足标注" width="720" height="1280"></figure>
+  </article>
+
+  <article class="find">
+    <div class="body">
+      <span class="sev r">影响大</span>
+      <h3>最后一次下放失控</h3>
+      <p>第 12 次推到顶后停了约 1 秒，之后 0.4 秒内握把直接落回底部。力竭时肩关节最不稳定，这一下是整组里受伤风险最高的瞬间。</p>
+      <div class="fix"><b>怎么改</b>最后一次也要“护送”下来，至少数 2 秒。推不动了就请同伴在顶端帮扶，或者在还能控制下放时结束这一组。</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+      <figure class="shot"><span class="tag">0.5× 慢放</span><img src="media/last_rep_drop.gif" alt="最后一次下放慢放" width="360" height="640" style="max-width:360px;margin:auto"></figure>
+      <figure class="shot" data-zoom><span class="tag">0.2 秒间隔</span><img src="media/drop_strip.jpg" alt="最后一次下放的四帧分解" width="1058" height="520"></figure>
+    </div>
+  </article>
+
+  <article class="find">
+    <div class="body">
+      <span class="sev w">中等</span>
+      <h3>离心太快，每次约 1 秒</h3>
+      <p>前 9 次的下放都在 0.9–1.0 秒，基本是让重量自己落下来。离心阶段同样产生大量肌肉张力，放得太快等于白送一半的训练效果。具体数字见下方节奏图。</p>
+      <div class="fix"><b>怎么改</b>推起 1 秒，下放默数“1、2、3”。用同样的重量可能只能做 9–10 次，这是正常的。</div>
+    </div>
+    <figure class="shot"><span class="tag">第 2 次 vs 第 12 次推起</span><img src="media/velocity_compare.gif" alt="早期与末尾推起速度对比" width="600" height="534"></figure>
+  </article>
+
+  <article class="find">
+    <div class="body">
+      <span class="sev w">小问题</span>
+      <h3>咬牙憋气，下巴前伸</h3>
+      <p>后半组每次在底部发力时都咬紧牙、下巴往前顶。短暂憋气稳定躯干没问题，但头往前探会让颈部和斜方肌上部抢活。</p>
+      <div class="fix"><b>怎么改</b>底部吸气、推起过半时呼气。后脑勺轻贴靠垫，想象“用头把靠垫往后压”，下巴微收。</div>
+    </div>
+    <figure class="shot" data-zoom><span class="tag">放大 · 36.0s</span><img src="media/neck_zoom.jpg" alt="面部与颈部紧张放大标注" width="720" height="720"></figure>
+  </article>
+</section>
+
+<section id="tempo">
+  <div class="head">
+    <span class="eyebrow">节奏</span>
+    <h2>每次的推起和下放用时</h2>
+    <p class="muted">推起时间从第 10 次开始拉长，说明在接近力竭；下放时间始终在 1 秒左右，没有进入 2–3 秒的目标区间。</p>
+  </div>
+  <div class="chartbox">
+    <div class="cl"><span style="--c:var(--force)">推起（向心）</span><span style="--c:var(--warn)">下放（离心）</span><span style="--c:var(--good-bg)">下放目标 2–3 秒</span></div>
+    <svg id="chart" viewBox="0 0 760 300" role="img" aria-label="12 次动作的推起和下放用时柱状图"></svg>
+  </div>
+  <p class="muted" style="font-size:13.5px">逐帧读取（0.1–0.25 秒间隔），每个数字误差约 ±0.2 秒。第 1 次从静止起推，所以偏慢。</p>
+</section>
+
+<section id="plan">
+  <div class="head"><span class="eyebrow">下次训练</span><h2>上机前对照这四条</h2></div>
+  <div class="plan">
+    <div class="step"><h3>座椅调高 1–2 格</h3><p>坐好后握把应在下巴到嘴的高度，肘部大约与肩平行。</p></div>
+    <div class="step"><h3>节奏 3-0-1</h3><p>下放 3 秒，底部不停顿，推起 1 秒。重量不变，接受次数下降。</p></div>
+    <div class="step"><h3>推起时呼气，头贴垫</h3><p>底部吸气，过半呼气；后脑勺贴住靠垫，下巴微收。</p></div>
+    <div class="step"><h3>最后一次要护送下来</h3><p>控制不住下放就结束这组，或请同伴在顶端帮扶。</p></div>
+  </div>
+  <div class="note">
+    <span>拍摄说明：视频只有右侧面一个角度，看不到左右手是否对称、肘部外展角度和腕部是否后折。下次可以再加一段正面或 45° 角的视频。</span>
+    <span>力线角度、关节位置按画面像素估算，作为动作对比参考，不是精确测量。</span>
+  </div>
+</section>
+
+</div>
+
+<dialog id="lb" aria-label="放大查看"><img alt=""></dialog>
+
+<script>
+// tempo chart
+(function(){
+  const con=[1.6,0.8,0.9,0.9,1.0,0.9,1.0,1.2,1.1,1.3,1.5,1.9];
+  const ecc=[1.0,0.9,1.0,1.0,0.9,1.0,0.9,0.9,1.1,1.2,1.3,0.4];
+  const L=44,R=10,T=12,B=40,W=760,H=300,max=3;
+  const iw=W-L-R, ih=H-T-B, y=v=>T+ih*(1-v/max), band=iw/12, bw=band*0.3;
+  let s=`<rect x="${L}" y="${y(3)}" width="${iw}" height="${y(2)-y(3)}" fill="var(--good-bg)"/>`;
+  for(let v=0;v<=3;v+=0.5){s+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--rule)" stroke-width="1"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end">${v.toFixed(1)}s</text>`}
+  con.forEach((c,i)=>{
+    const x=L+band*i+band/2;
+    s+=`<rect x="${x-bw-2}" y="${y(c)}" width="${bw}" height="${y(0)-y(c)}" rx="3" fill="var(--force)"/>`;
+    const e=ecc[i], col=i===11?'var(--bad)':'var(--warn)';
+    s+=`<rect x="${x+2}" y="${y(e)}" width="${bw}" height="${y(0)-y(e)}" rx="3" fill="${col}"/>`;
+    if(i>=9) s+=`<text x="${x-bw/2-2}" y="${y(c)-6}" text-anchor="middle" style="fill:var(--ink)">${c}</text>`;
+    if(i===11) s+=`<text x="${x+bw/2+2}" y="${y(e)-6}" text-anchor="middle" style="fill:var(--bad)">${e}</text>`;
+    s+=`<text x="${x}" y="${H-B+18}" text-anchor="middle">${i+1}</text>`;
+  });
+  s+=`<text x="${L+iw/2}" y="${H-4}" text-anchor="middle">第几次</text>`;
+  document.getElementById('chart').innerHTML=s;
+})();
+
+// lightbox
+const lb=document.getElementById('lb'), lbi=lb.querySelector('img');
+document.querySelectorAll('.shot').forEach(f=>f.addEventListener('click',()=>{
+  const im=f.querySelector('img'); lbi.src=im.src; lbi.alt=im.alt; lb.showModal();
+}));
+lb.addEventListener('click',()=>lb.close());
+
+// active nav pill
+const links=[...document.querySelectorAll('nav.toc a')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}
+}),{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('header[id],section[id]').forEach(s=>io.observe(s));
+</script>

@@ -1,0 +1,10 @@
+{
+  "force_top": 5.5,
+  "elbow_depth": 25,
+  "forearm_bottom": 18.9,
+  "reps": 12,
+  "con_avg": 1.2,
+  "ecc_typical": 1,
+  "ecc_min": 0.4,
+  "velocity_loss_pct": 54.4
+}

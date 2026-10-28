@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+tools/node_modules/
+
+# Incoming / private media
+inbox/*
+!inbox/README.md
+sessions/*/video.*
+sessions/*/video
+**/*.mov
+**/*.mp4
+**/*.m4v
+**/*.avi
+**/*.mkv
+**/*.webm
+
+# Optional large work drafts (keep example stills/overviews committed)
+sessions/*/work/gif_*/
+sessions/*/work/t*_grid.jpg
+sessions/*/work/t*_wrap.jpg
+sessions/*/work/t*.jpg
+!sessions/*/work/still_*.jpg
+!sessions/*/work/overview_*.jpg
+!sessions/*/work/strip_*.jpg
+!sessions/*/work/motion_strip_*.jpg
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+
+# Local overrides
+fit.config.local.json

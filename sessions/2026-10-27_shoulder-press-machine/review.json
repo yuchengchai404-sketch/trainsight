@@ -1,0 +1,157 @@
+{
+  "id": "2026-10-27_shoulder-press-machine",
+  "date": "2026-10-27",
+  "exercise": "shoulder-press-machine",
+  "video": "video.mov",
+  "source": "24f950a6405d40d5d1d8820e5fba5491b5a65e376b5e62b9e5af0a6167365534.mov",
+  "videoMeta": { "width": 720, "height": 1280, "fps": 30, "duration": 43.93 },
+  "load": null,
+  "headline": "躯干稳、顶端力线正；下放偏浅偏快，最后一次砸回",
+  "summary": "一组 **12 次**，做到接近力竭，躯干稳定、顶端力线干净。**主要扣分在下半程**：下放太浅、下放太快，最后一次几乎是砸回去的。",
+  "facts": [
+    { "v": "12", "k": "次" },
+    { "v": "≈29", "k": "秒做完" },
+    { "v": "≈2.1", "k": "秒/次" },
+    { "v": "0.4", "k": "秒 最后一次下放" }
+  ],
+  "verdict": [
+    { "label": "躯干稳定", "value": "优秀", "tone": "good" },
+    { "label": "顶端力线", "value": "良好", "tone": "force" },
+    { "label": "动作幅度", "value": "偏浅", "tone": "bad" },
+    { "label": "离心控制", "value": "偏快", "tone": "bad" }
+  ],
+  "reps": [
+    { "t": 11.0, "con": 1.6, "ecc": 1.0 },
+    { "t": 13.8, "con": 0.8, "ecc": 0.9 },
+    { "t": 15.7, "con": 0.9, "ecc": 1.0 },
+    { "t": 17.6, "con": 0.9, "ecc": 1.0 },
+    { "t": 19.6, "con": 1.0, "ecc": 0.9 },
+    { "t": 21.6, "con": 0.9, "ecc": 1.0 },
+    { "t": 23.5, "con": 1.0, "ecc": 0.9 },
+    { "t": 25.4, "con": 1.2, "ecc": 0.9 },
+    { "t": 27.5, "con": 1.1, "ecc": 1.1 },
+    { "t": 29.8, "con": 1.3, "ecc": 1.2 },
+    { "t": 32.7, "con": 1.5, "ecc": 1.3 },
+    { "t": 36.1, "con": 1.9, "ecc": 0.4 }
+  ],
+  "stills": [
+    {
+      "id": "top", "t": 24.5, "tag": "顶端 · 24.5s", "alt": "顶端位置力线标注",
+      "keypoints": { "hand": [442, 158], "shoulder": [474, 488], "hip": [452, 930], "back_hi": [588, 520], "back_lo": [505, 885] },
+      "shapes": [
+        { "type": "vline", "at": "shoulder", "y1": 70, "y2": 620 },
+        { "type": "line", "from": "hand", "to": "shoulder", "color": "force", "width": 7 },
+        { "type": "dot", "at": "hand", "color": "force" },
+        { "type": "dot", "at": "shoulder", "color": "force" },
+        { "type": "line", "from": "back_hi", "to": "back_lo", "color": "good", "width": 7 },
+        { "type": "dot", "at": "hip", "color": "good" },
+        { "type": "label", "at": [30, 110], "text": "力线≈{force_top}°，几乎垂直穿过肩关节", "color": "force", "num": 1 },
+        { "type": "label", "at": [30, 640], "text": "背部全程贴住靠垫", "color": "good", "num": 2 },
+        { "type": "label", "at": [30, 990], "text": "臀部稳坐，不借腰顶起", "color": "good", "num": 3 },
+        { "type": "label", "at": [498, 640], "text": "铅垂线", "size": 20 }
+      ]
+    },
+    {
+      "id": "bottom", "t": 13.75, "tag": "底部 · 13.75s", "alt": "底部位置幅度与前臂力线标注",
+      "keypoints": { "hand": [420, 330], "elbow": [372, 470], "shoulder": [490, 525], "target": [420, 440] },
+      "shapes": [
+        { "type": "hline", "at": "shoulder", "x1": 30, "x2": 700, "color": "warn" },
+        { "type": "hline", "at": "elbow", "x1": 250, "x2": 700, "color": "bad", "dash": "6,8" },
+        { "type": "vline", "at": "hand", "y1": 330, "y2": 520, "dash": "8,8" },
+        { "type": "line", "from": "hand", "to": "elbow", "color": "good", "width": 7 },
+        { "type": "line", "from": "elbow", "to": "shoulder", "color": "bad", "width": 7 },
+        { "type": "dot", "at": "hand", "color": "force" },
+        { "type": "dot", "at": "elbow", "color": "bad" },
+        { "type": "dot", "at": "shoulder", "color": "warn" },
+        { "type": "ring", "at": "target", "r": 26, "color": "good", "dash": "7,7" },
+        { "type": "arrow", "from": [420, 350], "to": [420, 412], "color": "good", "width": 4, "head": 18 },
+        { "type": "label", "at": [30, 250], "text": "握把只下到眉眼高度", "color": "bad", "num": 1 },
+        { "type": "label", "at": [30, 436], "text": "肘高于肩 {elbow_depth}°", "color": "bad", "size": 22 },
+        { "type": "label", "at": [30, 561], "text": "肩关节高度", "color": "warn", "size": 22 },
+        { "type": "label", "at": [150, 640], "text": "目标：握把下到下巴≈嘴的高度", "color": "good", "num": 2 },
+        { "type": "label", "at": [150, 720], "text": "前臂偏角{forearm_bottom}°，传力顺", "color": "good", "num": 3 }
+      ]
+    },
+    {
+      "id": "neck", "t": 36.0, "crop": [300, 260, 360, 360], "zoom": 2, "ui": 0.55, "tag": "放大 · 36.0s", "alt": "面部与颈部紧张放大标注",
+      "keypoints": { "jaw": [462, 452] },
+      "shapes": [
+        { "type": "ring", "at": "jaw", "r": 34, "color": "bad" },
+        { "type": "label", "at": [305, 285], "text": "咬牙憋气", "color": "bad", "num": 1 },
+        { "type": "label", "at": [330, 600], "text": "发力时下巴前伸、面部紧绷", "color": "warn", "num": 2 }
+      ]
+    },
+    {
+      "id": "drop", "type": "strip", "times": [39.4, 39.6, 39.8, 40.0], "crop": [160, 0, 520, 1040], "tag": "0.2 秒间隔", "alt": "最后一次下放的四帧分解"
+    }
+  ],
+  "gifs": [
+    {
+      "id": "rep", "start": 12.9, "end": 15.1, "tag": "第 1–2 次 · 原速", "alt": "一次完整推肩动作，叠加肩线和铅垂参考线",
+      "keypoints": { "shoulder": [490, 525] },
+      "guides": [
+        { "type": "vline", "at": 474, "y1": 60, "y2": 640 },
+        { "type": "hline", "at": "shoulder", "x1": 150, "x2": 700, "color": "warn" },
+        { "type": "dot", "at": "shoulder", "color": "warn" },
+        { "type": "label", "at": [560, 560], "text": "肩线", "color": "warn", "size": 24 }
+      ],
+      "phases": [
+        { "from": 12.6, "to": 13.0, "text": "顶端 · 力线叠在肩上", "color": "good" },
+        { "from": 13.0, "to": 13.7, "text": "下放 · 离心≈0.9s", "color": "warn" },
+        { "from": 13.7, "to": 14.0, "text": "底部 · 肘未到肩线", "color": "bad" },
+        { "from": 14.0, "to": 14.6, "text": "推起 · 向心≈0.8s", "color": "force" },
+        { "from": 14.6, "to": 16.0, "text": "顶端 · 力线叠在肩上", "color": "good" }
+      ]
+    },
+    {
+      "id": "drop_gif", "start": 38.9, "end": 40.3, "speed": 0.5, "tag": "0.5× 慢放", "alt": "最后一次下放慢放",
+      "phases": [
+        { "from": 38.9, "to": 39.4, "text": "第12次 · 顶端", "color": "warn" },
+        { "from": 39.4, "to": 39.85, "text": "0.4 秒直接砸回！", "color": "bad" },
+        { "from": 39.85, "to": 41, "text": "离心失控", "color": "bad" }
+      ],
+      "events": [
+        { "from": 39.4, "to": 39.85, "shapes": [{ "type": "arrow", "from": [560, 180], "to": [560, 450], "color": "bad", "width": 7, "head": 30 }] }
+      ]
+    },
+    {
+      "id": "velocity", "type": "compare", "tag": "第 2 次 vs 第 12 次推起", "alt": "早期与末尾推起速度对比",
+      "left": { "start": 13.9, "end": 14.75, "title": "第 2 次", "sub": "推起 ≈0.8s", "color": "good" },
+      "right": { "start": 36.1, "end": 38.0, "title": "第 12 次", "sub": "推起 ≈1.9s", "color": "bad" }
+    }
+  ],
+  "hero": { "media": "rep", "tag": "第 1–2 次 · 原速", "caption": "黄线是肩关节高度，白虚线是穿过肩关节的铅垂线。注意底部时肘部始终没有落到黄线。" },
+  "sections": {
+    "force": {
+      "title": "顶端力线很正，底部没走完",
+      "intro": "推举类动作的力线是“握把 → 前臂 → 肩关节”这条传力路线。路线越接近竖直，越能把重量直接压在肩关节上方，三角肌发力也越纯粹。",
+      "items": [
+        { "media": "top", "text": "**顶端：**握把到肩关节的连线和铅垂线只差约 {force_top}°，重量正压在肩上方，手臂接近伸直但没有猛锁肘。背部贴靠垫，臀部没有离座借力。" },
+        { "media": "bottom", "text": "**底部：**前臂基本竖直，传力路线没问题。问题在深度：握把停在眉眼高度，肘部还在肩线上方就开始推，三角肌最有效的拉伸段被跳过了。" }
+      ]
+    },
+    "goodsTitle": "这三点保持住",
+    "goods": [
+      { "title": "躯干全程稳定", "text": "12 次里背部始终贴住靠垫，没有为了推起来而后仰、拱腰或抬臀。到力竭阶段也没变形，这一点很多人做不到。" },
+      { "title": "推起路线一致", "text": "每次握把轨迹几乎重合，顶端力线落在肩关节正上方，说明座位前后位置和握法基本合适。" },
+      { "title": "强度到位", "text": "前 9 次推起约 1 秒，最后 3 次明显变慢到 1.5–1.9 秒，这是接近力竭的典型信号，这组是有效组。" }
+    ],
+    "fixes": [
+      { "severity": "high", "title": "下放幅度偏浅", "text": "底部握把在眉眼高度就折返，肘部高于肩线约 {elbow_depth}°，相当于每次只做了动作的上 2/3。器械推肩的增肌刺激很大一部分来自下半程的拉伸。", "fix": "座椅调高 1–2 格，让起始时握把落在下巴到嘴的高度，肘部大约平行或略低于肩。肩部有不适就停在无痛的最低点。", "media": ["bottom"] },
+      { "severity": "high", "severityText": "影响大", "title": "最后一次下放失控", "text": "第 12 次推到顶后停了约 1 秒，之后 0.4 秒内握把直接落回底部。力竭时肩关节最不稳定，这一下是整组里受伤风险最高的瞬间。", "fix": "最后一次也要“护送”下来，至少数 2 秒。推不动了就请同伴在顶端帮扶，或者在还能控制下放时结束这一组。", "media": ["drop_gif", "drop"] },
+      { "severity": "mid", "title": "离心太快，每次约 1 秒", "text": "前 9 次的下放都在 0.9–1.0 秒，基本是让重量自己落下来。离心阶段同样产生大量肌肉张力，放得太快等于白送一半的训练效果。", "fix": "推起 1 秒，下放默数“1、2、3”。用同样的重量可能只能做 9–10 次，这是正常的。", "media": ["velocity"] },
+      { "severity": "low", "title": "咬牙憋气，下巴前伸", "text": "后半组每次在底部发力时都咬紧牙、下巴往前顶。短暂憋气稳定躯干没问题，但头往前探会让颈部和斜方肌上部抢活。", "fix": "底部吸气、推起过半时呼气。后脑勺轻贴靠垫，下巴微收。", "media": ["neck"] }
+    ],
+    "tempoNote": "推起时间从第 10 次开始拉长，说明在接近力竭；下放时间始终在 1 秒左右，没有进入 2–3 秒的目标区间。",
+    "plan": [
+      { "title": "座椅调高 1–2 格", "text": "坐好后握把应在下巴到嘴的高度，肘部大约与肩平行。" },
+      { "title": "节奏 3-0-1", "text": "下放 3 秒，底部不停顿，推起 1 秒。重量不变，接受次数下降。" },
+      { "title": "推起时呼气，头贴垫", "text": "底部吸气，过半呼气；后脑勺贴住靠垫，下巴微收。" },
+      { "title": "最后一次要护送下来", "text": "控制不住下放就结束这组，或请同伴在顶端帮扶。" }
+    ],
+    "notes": [
+      "视频只有右侧面一个角度，看不到左右手是否对称、肘部外展角度和腕部是否后折。",
+      "力线角度、关节位置按画面像素估算，作为前后对比参考，不是精确测量。"
+    ]
+  }
+}

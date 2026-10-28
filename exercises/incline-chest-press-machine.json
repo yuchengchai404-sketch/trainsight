@@ -1,0 +1,35 @@
+{
+  "id": "incline-chest-press-machine",
+  "name": "上斜器械推胸",
+  "short": "上斜推胸",
+  "view": "侧面",
+  "keypoints": {
+    "hand": "握把中心（手掌）",
+    "elbow": "肘关节外侧中心",
+    "shoulder": "肩关节中心",
+    "hip": "髋关节"
+  },
+  "requiredStills": {
+    "top": "推起到最高点的一帧",
+    "bottom": "下放到最低点、即将推起的一帧"
+  },
+  "compareStills": ["top", "bottom"],
+  "thumbStill": "top",
+  "metrics": [
+    { "id": "force_top", "label": "顶端力线偏角", "unit": "°", "kind": "angle_vertical", "still": "top", "points": ["hand", "shoulder"], "target": [0, 20], "tolerance": 10, "better": "lower" },
+    { "id": "elbow_depth", "label": "底部肘相对肩的深度", "unit": "°", "kind": "angle_horizontal_signed", "still": "bottom", "points": ["shoulder", "elbow"], "target": [-20, 10], "tolerance": 10 },
+    { "id": "reps", "label": "次数", "unit": "次", "kind": "tempo", "fn": "reps" },
+    { "id": "con_avg", "label": "平均推起用时", "unit": "s", "kind": "tempo", "fn": "con_avg", "trend": false },
+    { "id": "ecc_typical", "label": "典型下放用时", "unit": "s", "kind": "tempo", "fn": "ecc_typical", "target": [2, 3], "tolerance": 0.8, "better": "higher" },
+    { "id": "ecc_min", "label": "最快一次下放", "unit": "s", "kind": "tempo", "fn": "ecc_min", "target": [1.5, 3], "tolerance": 0.6, "better": "higher" },
+    { "id": "velocity_loss_pct", "label": "末次推起减速", "unit": "%", "kind": "tempo", "fn": "velocity_loss_pct", "target": [20, 50], "tolerance": 15 }
+  ],
+  "checklist": [
+    "背部全程贴靠上斜垫，不借腰顶",
+    "底部肘过躯干平面、握把约到上胸/锁骨下",
+    "顶端接近伸直但不猛锁肘砸停",
+    "头颈：后脑可贴垫，下巴微收",
+    "节奏离心 2–3 秒；末次也要控制下放",
+    "单一侧面看不清左右对称时注明"
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "id": "chest-press-machine",
+  "name": "平板器械推胸",
+  "short": "器械推胸",
+  "view": "侧面",
+  "keypoints": {
+    "hand": "握把中心（手掌）",
+    "elbow": "肘关节外侧中心",
+    "shoulder": "肩关节中心",
+    "hip": "髋关节（大转子）",
+    "bar": "握把/力臂参考点"
+  },
+  "requiredStills": {
+    "top": "推起到最高点、肘接近伸直的一帧",
+    "bottom": "下放到最低点、即将推起的一帧"
+  },
+  "compareStills": [
+    "top",
+    "bottom"
+  ],
+  "thumbStill": "top",
+  "metrics": [
+    {
+      "id": "force_top",
+      "label": "顶端力线偏角",
+      "unit": "°",
+      "kind": "angle_vertical",
+      "still": "top",
+      "points": [
+        "hand",
+        "shoulder"
+      ],
+      "target": [
+        0,
+        20
+      ],
+      "tolerance": 10,
+      "better": "lower"
+    },
+    {
+      "id": "elbow_flare",
+      "label": "底部上臂相对躯干开合（目测）",
+      "unit": "°",
+      "kind": "manual",
+      "target": [
+        45,
+        75
+      ],
+      "tolerance": 15
+    },
+    {
+      "id": "forearm_bottom",
+      "label": "底部前臂相对握把传力",
+      "unit": "°",
+      "kind": "angle_vertical",
+      "still": "bottom",
+      "points": [
+        "elbow",
+        "hand"
+      ],
+      "target": [
+        0,
+        25
+      ],
+      "tolerance": 10,
+      "better": "lower"
+    },
+    {
+      "id": "depth_ok",
+      "label": "底部肘是否过躯干平面",
+      "unit": "",
+      "kind": "manual"
+    },
+    {
+      "id": "reps",
+      "label": "次数",
+      "unit": "次",
+      "kind": "tempo",
+      "fn": "reps"
+    },
+    {
+      "id": "con_avg",
+      "label": "平均推起用时",
+      "unit": "s",
+      "kind": "tempo",
+      "fn": "con_avg",
+      "trend": false
+    },
+    {
+      "id": "ecc_typical",
+      "label": "典型下放用时",
+      "unit": "s",
+      "kind": "tempo",
+      "fn": "ecc_typical",
+      "target": [
+        2,
+        3
+      ],
+      "tolerance": 0.8,
+      "better": "higher"
+    },
+    {
+      "id": "ecc_min",
+      "label": "最快一次下放",
+      "unit": "s",
+      "kind": "tempo",
+      "fn": "ecc_min",
+      "target": [
+        1.5,
+        3
+      ],
+      "tolerance": 0.6,
+      "better": "higher"
+    },
+    {
+      "id": "velocity_loss_pct",
+      "label": "末次推起减速",
+      "unit": "%",
+      "kind": "tempo",
+      "fn": "velocity_loss_pct",
+      "target": [
+        20,
+        50
+      ],
+      "tolerance": 15
+    }
+  ],
+  "checklist": [
+    "肩胛稳定贴靠垫，不耸肩过度前伸",
+    "底部握把约到胸中线高度，肘过躯干平面但不弹震",
+    "手腕中立（有护腕），前臂与推方向大致共线",
+    "臀部不离垫、脚踩实",
+    "节奏：离心约 2–3 秒，向心可控",
+    "推起过半呼气，头颈不猛然抬起"
+  ]
+}

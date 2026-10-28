@@ -1,0 +1,121 @@
+TrainSight public package manifest
+Generated: 2026-10-28 11:31 CST (Asia/Shanghai)
+
+Purpose: clean GitHub-ready Claude Code pack for fitness video AI form review.
+Excluded: raw videos, node_modules, inbox media, deliverables/, personal absolute paths, private claude.ai archiveUrl.
+
+Total size: 22M
+File count: 86
+
+=== Top-level ===
+NAME                         SIZE
+.claude                      20K
+.gitignore                   4.0K
+CLAUDE.md                    4.0K
+LICENSE                      4.0K
+MANIFEST.txt                 4.0K
+README.md                    4.0K
+exercises                    16K
+fit.config.json              4.0K
+inbox                        8.0K
+sessions                     6.3M
+site                         11M
+tools                        104K
+推肩复盘                 4.3M
+
+=== Included highlights ===
+- exercises/*.json (shoulder / chest / incline chest press)
+- tools/fit.js + lib/ + templates/ + package.json + package-lock.json
+- .claude/skills/fit-review/SKILL.md (portable relative paths)
+- sessions/*/review.json + metrics.json + work stills/overviews/strips
+- site/ demo archive with 3 session pages + media
+- 推肩复盘/ standalone shoulder sample page
+- README.md (EN+ZH), LICENSE (MIT), CLAUDE.md, fit.config.json, .gitignore
+
+=== All files ===
+.claude/skills/fit-review/SKILL.md
+.gitignore
+CLAUDE.md
+LICENSE
+MANIFEST.txt
+README.md
+exercises/chest-press-machine.json
+exercises/incline-chest-press-machine.json
+exercises/shoulder-press-machine.json
+fit.config.json
+inbox/README.md
+sessions/2026-10-27_chest-press-machine/metrics.json
+sessions/2026-10-27_chest-press-machine/review.json
+sessions/2026-10-27_chest-press-machine/work/motion_strip_10_45.jpg
+sessions/2026-10-27_chest-press-machine/work/overview_01.jpg
+sessions/2026-10-27_chest-press-machine/work/overview_02.jpg
+sessions/2026-10-27_chest-press-machine/work/overview_03.jpg
+sessions/2026-10-27_chest-press-machine/work/overview_04.jpg
+sessions/2026-10-27_chest-press-machine/work/overview_05.jpg
+sessions/2026-10-27_chest-press-machine/work/still_bottom.jpg
+sessions/2026-10-27_chest-press-machine/work/still_setup.jpg
+sessions/2026-10-27_chest-press-machine/work/still_top.jpg
+sessions/2026-10-27_incline-chest-press-machine/metrics.json
+sessions/2026-10-27_incline-chest-press-machine/review.json
+sessions/2026-10-27_incline-chest-press-machine/work/motion_strip_7_40.jpg
+sessions/2026-10-27_incline-chest-press-machine/work/overview_01.jpg
+sessions/2026-10-27_incline-chest-press-machine/work/overview_02.jpg
+sessions/2026-10-27_incline-chest-press-machine/work/overview_03.jpg
+sessions/2026-10-27_incline-chest-press-machine/work/overview_04.jpg
+sessions/2026-10-27_incline-chest-press-machine/work/overview_05.jpg
+sessions/2026-10-27_incline-chest-press-machine/work/still_bottom.jpg
+sessions/2026-10-27_incline-chest-press-machine/work/still_release.jpg
+sessions/2026-10-27_incline-chest-press-machine/work/still_top.jpg
+sessions/2026-10-27_shoulder-press-machine/metrics.json
+sessions/2026-10-27_shoulder-press-machine/review.json
+sessions/2026-10-27_shoulder-press-machine/work/overview_01.jpg
+sessions/2026-10-27_shoulder-press-machine/work/overview_02.jpg
+sessions/2026-10-27_shoulder-press-machine/work/overview_03.jpg
+sessions/2026-10-27_shoulder-press-machine/work/overview_04.jpg
+sessions/2026-10-27_shoulder-press-machine/work/still_bottom.jpg
+sessions/2026-10-27_shoulder-press-machine/work/still_neck.jpg
+sessions/2026-10-27_shoulder-press-machine/work/still_top.jpg
+sessions/2026-10-27_shoulder-press-machine/work/strip_drop_39.4.jpg
+sessions/2026-10-27_shoulder-press-machine/work/strip_drop_39.6.jpg
+sessions/2026-10-27_shoulder-press-machine/work/strip_drop_39.8.jpg
+sessions/2026-10-27_shoulder-press-machine/work/strip_drop_40.jpg
+site/files.json
+site/index.html
+site/s/2026-10-27_chest-press-machine/index.html
+site/s/2026-10-27_chest-press-machine/media/bottom.jpg
+site/s/2026-10-27_chest-press-machine/media/drop_gif.gif
+site/s/2026-10-27_chest-press-machine/media/rep.gif
+site/s/2026-10-27_chest-press-machine/media/setup.jpg
+site/s/2026-10-27_chest-press-machine/media/top.jpg
+site/s/2026-10-27_chest-press-machine/media/velocity.gif
+site/s/2026-10-27_incline-chest-press-machine/index.html
+site/s/2026-10-27_incline-chest-press-machine/media/bottom.jpg
+site/s/2026-10-27_incline-chest-press-machine/media/drop_gif.gif
+site/s/2026-10-27_incline-chest-press-machine/media/release.jpg
+site/s/2026-10-27_incline-chest-press-machine/media/rep.gif
+site/s/2026-10-27_incline-chest-press-machine/media/top.jpg
+site/s/2026-10-27_incline-chest-press-machine/media/velocity.gif
+site/s/2026-10-27_shoulder-press-machine/index.html
+site/s/2026-10-27_shoulder-press-machine/media/bottom.jpg
+site/s/2026-10-27_shoulder-press-machine/media/drop.jpg
+site/s/2026-10-27_shoulder-press-machine/media/drop_gif.gif
+site/s/2026-10-27_shoulder-press-machine/media/neck.jpg
+site/s/2026-10-27_shoulder-press-machine/media/rep.gif
+site/s/2026-10-27_shoulder-press-machine/media/top.jpg
+site/s/2026-10-27_shoulder-press-machine/media/velocity.gif
+tools/fit.js
+tools/lib/draw.js
+tools/lib/media.js
+tools/lib/metrics.js
+tools/package-lock.json
+tools/package.json
+tools/templates/pages.js
+tools/templates/style.css
+推肩复盘/index.html
+推肩复盘/media/bottom_depth.jpg
+推肩复盘/media/drop_strip.jpg
+推肩复盘/media/last_rep_drop.gif
+推肩复盘/media/neck_zoom.jpg
+推肩复盘/media/rep_forceline.gif
+推肩复盘/media/top_force.jpg
+推肩复盘/media/velocity_compare.gif

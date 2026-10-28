@@ -1,0 +1,36 @@
+{
+  "id": "shoulder-press-machine",
+  "name": "坐姿器械推肩",
+  "short": "器械推肩",
+  "view": "侧面",
+  "keypoints": {
+    "hand": "握把中心（手掌）",
+    "elbow": "肘关节外侧中心",
+    "shoulder": "肩关节中心（肱骨头，衣服下估计）",
+    "hip": "髋关节（大转子）"
+  },
+  "requiredStills": {
+    "top": "推起到最高点、动作最稳定的一帧",
+    "bottom": "下放到最低点、即将推起的一帧"
+  },
+  "compareStills": ["top", "bottom"],
+  "thumbStill": "top",
+  "metrics": [
+    { "id": "force_top", "label": "顶端力线偏角", "unit": "°", "kind": "angle_vertical", "still": "top", "points": ["hand", "shoulder"], "target": [0, 8], "tolerance": 5, "better": "lower" },
+    { "id": "elbow_depth", "label": "底部上臂角（肘高于肩为正）", "unit": "°", "kind": "angle_horizontal_signed", "still": "bottom", "points": ["shoulder", "elbow"], "target": [-15, 0], "tolerance": 10, "better": "lower" },
+    { "id": "forearm_bottom", "label": "底部前臂偏角", "unit": "°", "kind": "angle_vertical", "still": "bottom", "points": ["elbow", "hand"], "target": [0, 20], "tolerance": 10, "better": "lower" },
+    { "id": "reps", "label": "次数", "unit": "次", "kind": "tempo", "fn": "reps" },
+    { "id": "con_avg", "label": "平均推起用时", "unit": "s", "kind": "tempo", "fn": "con_avg", "trend": false },
+    { "id": "ecc_typical", "label": "典型下放用时", "unit": "s", "kind": "tempo", "fn": "ecc_typical", "target": [2, 3], "tolerance": 0.8, "better": "higher" },
+    { "id": "ecc_min", "label": "最快一次下放", "unit": "s", "kind": "tempo", "fn": "ecc_min", "target": [1.5, 3], "tolerance": 0.6, "better": "higher" },
+    { "id": "velocity_loss_pct", "label": "末次推起减速", "unit": "%", "kind": "tempo", "fn": "velocity_loss_pct", "target": [30, 60], "tolerance": 15 }
+  ],
+  "checklist": [
+    "座椅高度：最低点握把应在下巴到嘴的高度，上臂约与地面平行或略低",
+    "顶端力线：握把—肩关节连线接近铅垂，手臂近伸直但不猛锁肘",
+    "躯干：背部全程贴靠垫，不后仰、不拱腰、不抬臀",
+    "前臂：底部前臂接近竖直，不过度前倾或后倒",
+    "节奏：离心 2–3 秒，最后一次也要控制下放",
+    "头颈：后脑贴垫、下巴微收，推起过半呼气"
+  ]
+}

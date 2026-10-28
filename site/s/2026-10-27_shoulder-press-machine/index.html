@@ -1,0 +1,197 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>器械推肩 2026-10-27</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap"><style>/* Layout: a coach's review sheet — one reading column, media panels break wider; force-line blue is the single accent */
+:root{
+  --bg:#f3f4f2; --panel:#ffffff; --ink:#15181d; --muted:#5d6570; --rule:#dcdfe2;
+  --force:#0284c7; --good:#059669; --bad:#dc2626; --warn:#b45309;
+  --good-bg:#e7f6ef; --bad-bg:#fdecec; --warn-bg:#fdf3e2; --force-bg:#e3f2fb;
+  --display:"Noto Serif SC","Songti SC",serif;
+  --body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1116; --panel:#161a21; --ink:#e8eaed; --muted:#9aa3ae; --rule:#262c35;
+  --force:#38bdf8; --good:#34d399; --bad:#f87171; --warn:#fbbf24;
+  --good-bg:#0f2a21; --bad-bg:#2c1416; --warn-bg:#2b2210; --force-bg:#0c2433; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1116; --panel:#161a21; --ink:#e8eaed; --muted:#9aa3ae; --rule:#262c35;
+  --force:#38bdf8; --good:#34d399; --bad:#f87171; --warn:#fbbf24;
+  --good-bg:#0f2a21; --bad-bg:#2c1416; --warn-bg:#2b2210; --force-bg:#0c2433; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.75;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+img{max-width:100%}
+.wrap{max-width:980px;margin:0 auto;padding-block:40px 80px;display:flex;flex-direction:column;gap:72px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.25}
+h1{font-size:clamp(34px,6vw,54px);font-weight:900;letter-spacing:.01em}
+h2{font-size:clamp(24px,3.6vw,32px);font-weight:900}
+h3{font-size:19px;font-weight:700}
+p{margin:0;max-width:62ch}
+a{color:var(--force)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.small{font-size:13.5px}
+
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)))}
+nav.toc .in{max-width:980px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+nav.toc a{flex:none;font-size:13.5px;color:var(--muted);text-decoration:none;padding:5px 12px;border-radius:999px;transition:background .2s,color .2s}
+nav.toc a:hover,nav.toc a.on{background:var(--panel);color:var(--ink)}
+nav.toc a.back{color:var(--force)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--force);outline-offset:2px}
+
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center}
+.hero .txt{display:flex;flex-direction:column;gap:20px;min-width:0}
+.lead{font-size:18px;color:var(--muted)}
+.lead b{color:var(--ink)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--muted)}
+.facts span b{font-family:var(--mono);color:var(--ink);font-weight:700;margin-right:4px}
+figure{margin:0}
+.verdict{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chip{border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.chip .k{font-size:13px;opacity:.85}
+.chip .v{font-weight:700;font-size:17px}
+.good-t{background:var(--good-bg);color:var(--good)} .bad-t{background:var(--bad-bg);color:var(--bad)}
+.warn-t{background:var(--warn-bg);color:var(--warn)} .force-t{background:var(--force-bg);color:var(--force)}
+
+.shot{position:relative;margin:0;border-radius:16px;overflow:hidden;background:#0b0f17;cursor:zoom-in;
+  box-shadow:0 1px 0 var(--rule),0 18px 40px -24px rgba(0,0,0,.45);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.shot:hover{transform:translateY(-3px)}
+.shot img{display:block;width:100%;height:auto;margin:auto}
+.shot .tag{position:absolute;left:10px;top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+  background:rgba(11,15,23,.78);color:#fff;padding:3px 9px;border-radius:999px}
+figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
+.stack{display:flex;flex-direction:column;gap:12px;min-width:0}
+
+section{display:flex;flex-direction:column;gap:24px;scroll-margin-top:70px}
+.head{display:flex;flex-direction:column;gap:8px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.duo>div{display:flex;flex-direction:column;gap:14px;min-width:0}
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:14px}
+.legend i{display:inline-block;width:22px;height:0;border-top:4px solid;vertical-align:middle;margin-right:6px;border-radius:2px}
+.legend .dash{border-top-style:dashed;border-top-width:3px}
+
+.find{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start;padding-top:28px;border-top:1px solid var(--rule)}
+.find .body{display:flex;flex-direction:column;gap:14px;min-width:0}
+.sev{align-self:flex-start;font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:999px}
+.fix{background:var(--panel);border-radius:12px;padding:14px 16px;font-size:15px;display:flex;flex-direction:column;gap:6px;border:1px solid var(--rule)}
+.fix b{font-size:13px;color:var(--muted);font-weight:500;letter-spacing:.06em}
+.goods{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.good{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.good h3{font-size:17px;color:var(--good)}
+.good p{font-size:14.5px;color:var(--muted)}
+
+.chartbox{background:var(--panel);border:1px solid var(--rule);border-radius:16px;padding:18px 18px 10px;overflow-x:auto}
+.chartbox svg{display:block;width:100%;min-width:520px;height:auto}
+.chartbox text{fill:var(--muted);font-family:var(--mono);font-size:11px}
+.cl{display:flex;gap:18px;font-size:13.5px;margin-bottom:6px;flex-wrap:wrap}
+.cl span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+
+.mt{width:100%;border-collapse:collapse;font-size:14.5px}
+.mtwrap{overflow-x:auto;background:var(--panel);border:1px solid var(--rule);border-radius:14px}
+.mt th,.mt td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--rule);white-space:nowrap}
+.mt tr:last-child td{border-bottom:0}
+.mt th{font-weight:500;color:var(--muted);font-size:13px}
+.mt td.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.pill{display:inline-block;font-size:12px;font-weight:700;padding:1px 9px;border-radius:999px}
+.delta{font-family:var(--mono);font-size:13px}
+
+.plan{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;counter-reset:p}
+.step{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:18px 18px 18px 60px;position:relative;min-width:0}
+.step::before{counter-increment:p;content:counter(p);position:absolute;left:18px;top:16px;width:28px;height:28px;border-radius:50%;
+  background:var(--force);color:var(--bg);font:700 14px/28px var(--mono);text-align:center}
+.step h3{font-size:16.5px;margin-bottom:4px;font-family:var(--body)}
+.step p{font-size:14.5px;color:var(--muted)}
+.note{font-size:13.5px;color:var(--muted);border-top:1px solid var(--rule);padding-top:20px;display:flex;flex-direction:column;gap:6px}
+
+/* progress page */
+.ex{display:flex;flex-direction:column;gap:22px;padding-top:28px;border-top:1px solid var(--rule)}
+.trends{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.trend{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.trend .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.trend .val{font-family:var(--mono);font-size:22px;font-weight:700}
+.trend svg{width:100%;height:auto;display:block}
+.trend svg text{fill:var(--muted);font-family:var(--mono);font-size:10px}
+.sessions{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.sess{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--rule);border-radius:14px;overflow:hidden;
+  text-decoration:none;color:var(--ink);transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .2s}
+.sess:hover{transform:translateY(-3px);border-color:var(--force)}
+.sess img{aspect-ratio:4/5;object-fit:cover;object-position:center 30%;width:100%;display:block;background:#0b0f17}
+.sess .meta{padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.sess .meta b{font-family:var(--mono);font-size:14px}
+.sess .meta span{font-size:13px;color:var(--muted)}
+.guide{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.guide div{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:14px 16px;font-size:14.5px}
+.guide b{display:block;margin-bottom:2px}
+.empty{background:var(--panel);border:1px dashed var(--rule);border-radius:14px;padding:22px;color:var(--muted)}
+
+dialog{border:0;padding:0;background:transparent;max-width:min(94vw,1100px);max-height:94vh}
+dialog::backdrop{background:rgba(5,7,10,.86);backdrop-filter:blur(4px)}
+dialog img{display:block;max-width:100%;max-height:90vh;border-radius:12px;margin:auto}
+dialog[open]{animation:pop .28s cubic-bezier(.2,.7,.2,1)}
+@keyframes pop{from{transform:scale(.96);opacity:.4}to{transform:none;opacity:1}}
+
+@media (max-width:760px){
+  .hero,.duo,.find{grid-template-columns:1fr}
+  .plan{grid-template-columns:1fr}
+  .wrap{gap:56px;padding-top:24px}
+  .hero figure{max-width:340px}
+}
+</style></head><body>
+<nav class="toc"><div class="in"><a class="back" href="../../index.html">← 训练档案</a><a href="#overview">总评</a><a href="#force">力线</a><a href="#good">做得好</a><a href="#fix">要改进</a><a href="#tempo">节奏</a><a href="#data">数据</a><a href="#plan">下次怎么练</a></div></nav>
+<div class="wrap">
+<header class="hero" id="overview">
+  <div class="txt">
+    <span class="eyebrow">训练复盘 · 侧面视角 · 2026-10-27</span>
+    <h1>坐姿器械推肩</h1>
+    <p class="lead">一组 <b>12 次</b>，做到接近力竭，躯干稳定、顶端力线干净。<b>主要扣分在下半程</b>：下放太浅、下放太快，最后一次几乎是砸回去的。</p>
+    <div class="facts"><span><b>12</b>次</span><span><b>≈29</b>秒做完</span><span><b>≈2.1</b>秒/次</span><span><b>0.4</b>秒 最后一次下放</span></div>
+    <div class="verdict"><div class="chip good-t"><span class="k">躯干稳定</span><span class="v">优秀</span></div><div class="chip force-t"><span class="k">顶端力线</span><span class="v">良好</span></div><div class="chip bad-t"><span class="k">动作幅度</span><span class="v">偏浅</span></div><div class="chip bad-t"><span class="k">离心控制</span><span class="v">偏快</span></div></div>
+  </div>
+  <figure><figure class="shot"><span class="tag">第 1–2 次 · 原速</span><img src="media/rep.gif" alt="一次完整推肩动作，叠加肩线和铅垂参考线" width="360" height="640" loading="lazy"></figure><figcaption>黄线是肩关节高度，白虚线是穿过肩关节的铅垂线。注意底部时肘部始终没有落到黄线。</figcaption></figure>
+</header>
+<section id="force"><div class="head"><span class="eyebrow">力线分析</span><h2>顶端力线很正，底部没走完</h2><p class="muted">推举类动作的力线是“握把 → 前臂 → 肩关节”这条传力路线。路线越接近竖直，越能把重量直接压在肩关节上方，三角肌发力也越纯粹。</p></div><div class="legend"><span><i style="border-color:var(--force)"></i>力线</span><span><i class="dash" style="border-color:var(--muted)"></i>铅垂参考</span>
+<span><i class="dash" style="border-color:var(--warn)"></i>关节高度参考</span><span><i style="border-color:var(--good)"></i>做得好</span><span><i style="border-color:var(--bad)"></i>需要改</span></div>
+<div class="duo"><div><figure class="shot"><img src="media/top.jpg" alt="顶端位置力线标注" width="720" height="1280" loading="lazy"></figure><p><b>顶端：</b>握把到肩关节的连线和铅垂线只差约 {force_top}°，重量正压在肩上方，手臂接近伸直但没有猛锁肘。背部贴靠垫，臀部没有离座借力。</p></div><div><figure class="shot"><img src="media/bottom.jpg" alt="底部位置幅度与前臂力线标注" width="720" height="1280" loading="lazy"></figure><p><b>底部：</b>前臂基本竖直，传力路线没问题。问题在深度：握把停在眉眼高度，肘部还在肩线上方就开始推，三角肌最有效的拉伸段被跳过了。</p></div></div></section>
+<section id="good"><div class="head"><span class="eyebrow">做得好的地方</span><h2>这三点保持住</h2></div>
+<div class="goods"><div class="good"><h3>躯干全程稳定</h3><p>12 次里背部始终贴住靠垫，没有为了推起来而后仰、拱腰或抬臀。到力竭阶段也没变形，这一点很多人做不到。</p></div><div class="good"><h3>推起路线一致</h3><p>每次握把轨迹几乎重合，顶端力线落在肩关节正上方，说明座位前后位置和握法基本合适。</p></div><div class="good"><h3>强度到位</h3><p>前 9 次推起约 1 秒，最后 3 次明显变慢到 1.5–1.9 秒，这是接近力竭的典型信号，这组是有效组。</p></div></div></section>
+<section id="fix"><div class="head"><span class="eyebrow">需要改进</span><h2>按影响大小排序</h2></div>
+<article class="find"><div class="body"><span class="sev bad-t">影响最大</span><h3>下放幅度偏浅</h3><p>底部握把在眉眼高度就折返，肘部高于肩线约 {elbow_depth}°，相当于每次只做了动作的上 2/3。器械推肩的增肌刺激很大一部分来自下半程的拉伸。</p>
+<div class="fix"><b>怎么改</b>座椅调高 1–2 格，让起始时握把落在下巴到嘴的高度，肘部大约平行或略低于肩。肩部有不适就停在无痛的最低点。</div></div><div class="stack"><figure class="shot"><span class="tag">底部 · 13.75s</span><img src="media/bottom.jpg" alt="底部位置幅度与前臂力线标注" width="720" height="1280" loading="lazy"></figure></div></article><article class="find"><div class="body"><span class="sev bad-t">影响大</span><h3>最后一次下放失控</h3><p>第 12 次推到顶后停了约 1 秒，之后 0.4 秒内握把直接落回底部。力竭时肩关节最不稳定，这一下是整组里受伤风险最高的瞬间。</p>
+<div class="fix"><b>怎么改</b>最后一次也要“护送”下来，至少数 2 秒。推不动了就请同伴在顶端帮扶，或者在还能控制下放时结束这一组。</div></div><div class="stack"><figure class="shot"><span class="tag">0.5× 慢放</span><img src="media/drop_gif.gif" alt="最后一次下放慢放" width="360" height="640" loading="lazy" style="max-width:360px"></figure><figure class="shot"><span class="tag">0.2 秒间隔</span><img src="media/drop.jpg" alt="最后一次下放的四帧分解" width="1058" height="520" loading="lazy"></figure></div></article><article class="find"><div class="body"><span class="sev warn-t">中等</span><h3>离心太快，每次约 1 秒</h3><p>前 9 次的下放都在 0.9–1.0 秒，基本是让重量自己落下来。离心阶段同样产生大量肌肉张力，放得太快等于白送一半的训练效果。</p>
+<div class="fix"><b>怎么改</b>推起 1 秒，下放默数“1、2、3”。用同样的重量可能只能做 9–10 次，这是正常的。</div></div><div class="stack"><figure class="shot"><span class="tag">第 2 次 vs 第 12 次推起</span><img src="media/velocity.gif" alt="早期与末尾推起速度对比" width="600" height="534" loading="lazy"></figure></div></article><article class="find"><div class="body"><span class="sev warn-t">小问题</span><h3>咬牙憋气，下巴前伸</h3><p>后半组每次在底部发力时都咬紧牙、下巴往前顶。短暂憋气稳定躯干没问题，但头往前探会让颈部和斜方肌上部抢活。</p>
+<div class="fix"><b>怎么改</b>底部吸气、推起过半时呼气。后脑勺轻贴靠垫，下巴微收。</div></div><div class="stack"><figure class="shot"><span class="tag">放大 · 36.0s</span><img src="media/neck.jpg" alt="面部与颈部紧张放大标注" width="720" height="720" loading="lazy"></figure></div></article></section>
+<section id="tempo"><div class="head"><span class="eyebrow">节奏</span><h2>每次的推起和下放用时</h2><p class="muted">推起时间从第 10 次开始拉长，说明在接近力竭；下放时间始终在 1 秒左右，没有进入 2–3 秒的目标区间。</p></div>
+<div class="chartbox"><div class="cl"><span style="--c:var(--force)">推起（向心）</span><span style="--c:var(--warn)">下放（离心）</span><span style="--c:var(--good-bg)">下放目标 2–3 秒</span></div>
+<svg viewBox="0 0 760 300" role="img" aria-label="每次动作的推起和下放用时"><rect x="44" y="12" width="706" height="82.66666666666667" fill="var(--good-bg)"/><line x1="44" x2="750" y1="260" y2="260" stroke="var(--rule)" stroke-width="1"/><text x="36" y="264" text-anchor="end">0.0s</text><line x1="44" x2="750" y1="218.66666666666669" y2="218.66666666666669" stroke="var(--rule)" stroke-width="1"/><text x="36" y="222.66666666666669" text-anchor="end">0.5s</text><line x1="44" x2="750" y1="177.33333333333334" y2="177.33333333333334" stroke="var(--rule)" stroke-width="1"/><text x="36" y="181.33333333333334" text-anchor="end">1.0s</text><line x1="44" x2="750" y1="136" y2="136" stroke="var(--rule)" stroke-width="1"/><text x="36" y="140" text-anchor="end">1.5s</text><line x1="44" x2="750" y1="94.66666666666667" y2="94.66666666666667" stroke="var(--rule)" stroke-width="1"/><text x="36" y="98.66666666666667" text-anchor="end">2.0s</text><line x1="44" x2="750" y1="53.33333333333332" y2="53.33333333333332" stroke="var(--rule)" stroke-width="1"/><text x="36" y="57.33333333333332" text-anchor="end">2.5s</text><line x1="44" x2="750" y1="12" y2="12" stroke="var(--rule)" stroke-width="1"/><text x="36" y="16" text-anchor="end">3.0s</text><rect x="53.76666666666667" y="127.73333333333333" width="17.65" height="132.26666666666665" rx="3" fill="var(--force)"/><rect x="75.41666666666667" y="177.33333333333334" width="17.65" height="82.66666666666666" rx="3" fill="var(--warn)"/><text x="73.41666666666667" y="278" text-anchor="middle">1</text><rect x="112.6" y="193.86666666666667" width="17.65" height="66.13333333333333" rx="3" fill="var(--force)"/><rect x="134.25" y="185.6" width="17.65" height="74.4" rx="3" fill="var(--warn)"/><text x="132.25" y="278" text-anchor="middle">2</text><rect x="171.43333333333334" y="185.6" width="17.65" height="74.4" rx="3" fill="var(--force)"/><rect x="193.08333333333334" y="177.33333333333334" width="17.65" height="82.66666666666666" rx="3" fill="var(--warn)"/><text x="191.08333333333334" y="278" text-anchor="middle">3</text><rect x="230.26666666666665" y="185.6" width="17.65" height="74.4" rx="3" fill="var(--force)"/><rect x="251.91666666666666" y="177.33333333333334" width="17.65" height="82.66666666666666" rx="3" fill="var(--warn)"/><text x="249.91666666666666" y="278" text-anchor="middle">4</text><rect x="289.1000000000001" y="177.33333333333334" width="17.65" height="82.66666666666666" rx="3" fill="var(--force)"/><rect x="310.75000000000006" y="185.6" width="17.65" height="74.4" rx="3" fill="var(--warn)"/><text x="308.75000000000006" y="278" text-anchor="middle">5</text><rect x="347.9333333333334" y="185.6" width="17.65" height="74.4" rx="3" fill="var(--force)"/><rect x="369.58333333333337" y="177.33333333333334" width="17.65" height="82.66666666666666" rx="3" fill="var(--warn)"/><text x="367.58333333333337" y="278" text-anchor="middle">6</text><rect x="406.7666666666667" y="177.33333333333334" width="17.65" height="82.66666666666666" rx="3" fill="var(--force)"/><rect x="428.4166666666667" y="185.6" width="17.65" height="74.4" rx="3" fill="var(--warn)"/><text x="426.4166666666667" y="278" text-anchor="middle">7</text><rect x="465.6000000000001" y="160.8" width="17.65" height="99.19999999999999" rx="3" fill="var(--force)"/><rect x="487.25000000000006" y="185.6" width="17.65" height="74.4" rx="3" fill="var(--warn)"/><text x="485.25000000000006" y="278" text-anchor="middle">8</text><rect x="524.4333333333334" y="169.06666666666666" width="17.65" height="90.93333333333334" rx="3" fill="var(--force)"/><rect x="546.0833333333334" y="169.06666666666666" width="17.65" height="90.93333333333334" rx="3" fill="var(--warn)"/><text x="544.0833333333334" y="278" text-anchor="middle">9</text><rect x="583.2666666666667" y="152.53333333333333" width="17.65" height="107.46666666666667" rx="3" fill="var(--force)"/><rect x="604.9166666666666" y="160.8" width="17.65" height="99.19999999999999" rx="3" fill="var(--warn)"/><text x="592.0916666666666" y="146.53333333333333" text-anchor="middle" style="fill:var(--ink)">1.3</text><text x="602.9166666666666" y="278" text-anchor="middle">10</text><rect x="642.1" y="136" width="17.65" height="124" rx="3" fill="var(--force)"/><rect x="663.75" y="152.53333333333333" width="17.65" height="107.46666666666667" rx="3" fill="var(--warn)"/><text x="650.925" y="130" text-anchor="middle" style="fill:var(--ink)">1.5</text><text x="661.75" y="278" text-anchor="middle">11</text><rect x="700.9333333333334" y="102.93333333333334" width="17.65" height="157.06666666666666" rx="3" fill="var(--force)"/><rect x="722.5833333333334" y="226.93333333333334" width="17.65" height="33.06666666666666" rx="3" fill="var(--bad)"/><text x="709.7583333333333" y="96.93333333333334" text-anchor="middle" style="fill:var(--ink)">1.9</text><text x="731.4083333333334" y="220.93333333333334" text-anchor="middle" style="fill:var(--bad)">0.4</text><text x="720.5833333333334" y="278" text-anchor="middle">12</text><text x="397" y="296" text-anchor="middle">第几次</text></svg></div>
+<p class="muted small">逐帧读取，每个数字误差约 ±0.2 秒。第 1 次从静止起推，通常偏慢。</p></section>
+<section id="data"><div class="head"><span class="eyebrow">关键数据</span><h2>本次基线</h2>
+<p class="muted">这是这个动作的第一条记录，之后的训练都会和它对比。</p></div>
+<div class="mtwrap"><table class="mt"><thead><tr><th>指标</th><th>本次</th><th>目标</th><th>评估</th></tr></thead>
+<tbody><tr><td>顶端力线偏角</td><td class="num">5.5°</td><td class="num">0–8°</td>
+<td><span class="pill good-t">达标</span></td></tr><tr><td>底部上臂角（肘高于肩为正）</td><td class="num">25°</td><td class="num">-15–0°</td>
+<td><span class="pill bad-t">未达标</span></td></tr><tr><td>底部前臂偏角</td><td class="num">18.9°</td><td class="num">0–20°</td>
+<td><span class="pill good-t">达标</span></td></tr><tr><td>次数</td><td class="num">12 次</td><td class="num">—</td>
+<td></td></tr><tr><td>平均推起用时</td><td class="num">1.2s</td><td class="num">—</td>
+<td></td></tr><tr><td>典型下放用时</td><td class="num">1s</td><td class="num">2–3s</td>
+<td><span class="pill bad-t">未达标</span></td></tr><tr><td>最快一次下放</td><td class="num">0.4s</td><td class="num">1.5–3s</td>
+<td><span class="pill bad-t">未达标</span></td></tr><tr><td>末次推起减速</td><td class="num">54.4%</td><td class="num">30–60%</td>
+<td><span class="pill good-t">达标</span></td></tr></tbody></table></div>
+
+</section>
+<section id="plan"><div class="head"><span class="eyebrow">下次训练</span><h2>上机前对照这几条</h2></div>
+<div class="plan"><div class="step"><h3>座椅调高 1–2 格</h3><p>坐好后握把应在下巴到嘴的高度，肘部大约与肩平行。</p></div><div class="step"><h3>节奏 3-0-1</h3><p>下放 3 秒，底部不停顿，推起 1 秒。重量不变，接受次数下降。</p></div><div class="step"><h3>推起时呼气，头贴垫</h3><p>底部吸气，过半呼气；后脑勺贴住靠垫，下巴微收。</p></div><div class="step"><h3>最后一次要护送下来</h3><p>控制不住下放就结束这组，或请同伴在顶端帮扶。</p></div></div>
+<div class="note"><span>视频只有右侧面一个角度，看不到左右手是否对称、肘部外展角度和腕部是否后折。</span><span>力线角度、关节位置按画面像素估算，作为前后对比参考，不是精确测量。</span></div></section>
+</div>
+<dialog id="lb" aria-label="放大查看"><img alt=""></dialog><script>
+const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+document.querySelectorAll('.shot').forEach(f=>f.addEventListener('click',()=>{const im=f.querySelector('img');lbi.src=im.src;lbi.alt=im.alt;lb.showModal()}));
+lb.addEventListener('click',()=>lb.close());
+const links=[...document.querySelectorAll('nav.toc a[href^="#"]')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('header[id],section[id]').forEach(s=>io.observe(s));
+</script></body></html>
